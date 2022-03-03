@@ -1,1 +1,1 @@
-# java-cleanup-refactoring-workshop
+# cleanup-refactoring-java-workshop

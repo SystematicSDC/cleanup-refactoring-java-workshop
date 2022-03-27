@@ -1,5 +1,7 @@
 # Welcome to the Systematic Code Cleanup / Refactoring Java Workshop!
 
+[![Java CI with Maven](https://github.com/SystematicSDC/cleanup-refactoring-java-workshop/actions/workflows/maven.yml/badge.svg)](https://github.com/SystematicSDC/cleanup-refactoring-java-workshop/actions/workflows/maven.yml)
+
 ## How to use
 
 - open as a Maven project (via pom.xml)

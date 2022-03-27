@@ -17,36 +17,34 @@ package com.systematic.workshop.coderefactoring.cleancode;
  * See https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html
  */
 public class NamingConventionNightmare {
+    static final int A = 2;
+    static final int B = 1;
 
-    static final int A = 2, b = 1;
     static int x;
-    String Xy;
+    String xY;
     String y;
-    long THIS_IS_NOT_A_FINAL_FIELD;
+    long thisIsNotAFinalField;
 
 
-    public void some_METHOD() {
+    public void someMethod() {
         int x = 2;
-        x = x;
     }
 
-    public void ANOTher_Method() {
+    public void anotherMethod() {
     }
 
-    public String THISreturnsSomething() {
-        int x, y = 3;
-
-        String string = String.valueOf(3);
-
+    public String thisReturnsSomething() {
+        int x;
+        int y = 3;
         return String.valueOf(3);
 
     }
 
-    static class FUNKY_class_O_o {
+    static class FunkyClass {
 
     }
 
-    class x {
+    class X {
 
     }
 

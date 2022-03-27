@@ -1,7 +1,6 @@
 package com.systematic.workshop.coderefactoring.cleancode;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
@@ -20,13 +19,11 @@ class WriteAStoryTest {
     }
 
     @Test
-    @Disabled
-        // REMOVE THE DISABLED ANNOTATION
     void testThatTheLuckyAlgorithmIsWorking() {
         // Prepare
         AtomicBoolean iFeelLucky = new AtomicBoolean(false);
 
         // Execute and assert
-        assertThat(writeAStory.myMethod(dice)).isNotNull();
+        assertThat(writeAStory.isPlayerLuckyToday(dice)).isNotNull();
     }
 }

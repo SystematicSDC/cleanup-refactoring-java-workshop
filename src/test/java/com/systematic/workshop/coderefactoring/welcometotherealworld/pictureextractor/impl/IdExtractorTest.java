@@ -3,7 +3,6 @@ package com.systematic.workshop.coderefactoring.welcometotherealworld.pictureext
 import com.systematic.workshop.coderefactoring.welcometotherealworld.pictureextractor.Entity;
 import com.systematic.workshop.coderefactoring.welcometotherealworld.pictureextractor.IdExtractor;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.systematic.workshop.coderefactoring.welcometotherealworld.pictureextractor.impl.Person.CNPGenerator.MY_CNP;
@@ -19,8 +18,6 @@ class IdExtractorTest {
     }
 
     @Test
-    @Disabled
-        // REMOVE ME
     void testACustomEntityWithANullId() {
         // Prepare
         Entity entity = new Entity() {
@@ -39,8 +36,6 @@ class IdExtractorTest {
 
     // This test fails because there's a bug in the implementation!
     @Test
-    @Disabled
-    // REMOVE ME
     void testACustomEntityWithACustomId() {
         // Prepare
         Entity entity = new Entity() {
@@ -58,8 +53,6 @@ class IdExtractorTest {
     }
 
     @Test
-    @Disabled
-        // REMOVE ME
     void testPersonCNP() {
         // Prepare
         Person person = new Person();
@@ -72,8 +65,6 @@ class IdExtractorTest {
     }
 
     @Test
-    @Disabled
-        // REMOVE ME
     void testPictureName() {
         // Prepare
         Picture picture = new Picture();

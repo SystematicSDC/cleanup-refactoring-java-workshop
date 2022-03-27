@@ -19,18 +19,8 @@ package com.systematic.workshop.coderefactoring.welcometotherealworld.pictureext
  */
 public class IdExtractor {
 
-    public String getId(Object o) {
-        //        if (!(o instanceof Entity)) {
-        //            throw new IllegalArgumentException("Method only supports entities!");
-        //        }
-        //        Entity entity = (Entity) o;
-        //        if (entity instanceof Person) {
-        //            return CNPGenerator.generateCnp();
-        //        } else if (entity instanceof Picture) {
-        //            return entity.getId();
-        //        } else {
-        return null; // Hint: this might be a bug!
-        //        }
+    public String getId(Entity entity) {
+        return entity.getId();
     }
 
 }

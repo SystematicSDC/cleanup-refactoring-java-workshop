@@ -16,15 +16,16 @@ import static java.lang.Math.sqrt;
  */
 public class MeaningfulNames {
 
-    BigDecimal op1(BigDecimal operand1, BigDecimal _operand2_) {
-        return operand1.add(_operand2_).divide(BigDecimal.valueOf(2), 4, RoundingMode.HALF_UP);
+    BigDecimal average(BigDecimal no1, BigDecimal no2) {
+        BigDecimal sum = no1.add(no2);
+        return sum.divide(BigDecimal.valueOf(2), 4, RoundingMode.HALF_UP);
     }
 
-    strictfp double op2(double x, double y) {
-        return sqrt(pow(x, 2) + pow(y, 2));
+    strictfp double hypothenuseSize(double sideOneSize, double sideTwoSize) {
+        return sqrt(pow(sideOneSize, 2) + pow(sideTwoSize, 2));
     }
 
-    boolean myfunc(String s) throws IOException {
+    boolean deleteFile(String s) throws IOException {
         return Files.deleteIfExists(Paths.get(s));
     }
 

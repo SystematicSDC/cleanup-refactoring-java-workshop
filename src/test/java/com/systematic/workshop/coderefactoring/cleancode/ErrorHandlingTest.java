@@ -2,19 +2,15 @@ package com.systematic.workshop.coderefactoring.cleancode;
 
 import com.systematic.workshop.coderefactoring.cleancode.ErrorHandling.MyNumberCheckedException;
 import com.systematic.workshop.coderefactoring.cleancode.ErrorHandling.MyNumberRuntimeException;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static com.systematic.workshop.coderefactoring.cleancode.ErrorHandling.NumberParser.fixMeByReplacingThisCallPlease1111;
-import static com.systematic.workshop.coderefactoring.cleancode.ErrorHandling.NumberParser.parseNumberNoException;
+import static com.systematic.workshop.coderefactoring.cleancode.ErrorHandling.NumberParser.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 class ErrorHandlingTest {
 
     @Test
-    @Disabled
-        // REMOVE THE DISABLED ANNOTATION
     void parsingAnActualNumberIsSuccessful() {
         String no = "1";
 
@@ -23,30 +19,25 @@ class ErrorHandlingTest {
     }
 
     @Test
-    @Disabled
-        // REMOVE THE DISABLED ANNOTATION
     void parsingNullExpectsMyCheckedException() {
         String no = null;
 
-        assertThatExceptionOfType(MyNumberCheckedException.class).isThrownBy(() -> fixMeByReplacingThisCallPlease1111(no));
+        assertThatExceptionOfType(MyNumberCheckedException.class).isThrownBy(() -> parseNumberCustomCheckedException(no));
     }
 
     @Test
-    @Disabled
-        // REMOVE THE DISABLED ANNOTATION
     void parsingNullExpectsMyRuntimeException() {
         String no = null;
 
-        assertThatExceptionOfType(MyNumberRuntimeException.class).isThrownBy(() -> fixMeByReplacingThisCallPlease1111(no));
+        assertThatExceptionOfType(MyNumberRuntimeException.class).isThrownBy(() -> parseNumberCustomRuntimeException(no));
     }
 
     @Test
-    @Disabled
-        // REMOVE THE DISABLED ANNOTATION
     void parsingNullExpectsSomeRuntimeException() {
         String no = null;
 
         // TRY TO FIND MORE SOLUTIONS THAN ONE! CAN YOU THINK OF A REASON WHY THEY ALL WORK?
-        assertThatExceptionOfType(RuntimeException.class).isThrownBy(() -> fixMeByReplacingThisCallPlease1111(no));
+        assertThatExceptionOfType(RuntimeException.class).isThrownBy(() -> parseNumberCustomRuntimeException(no));
+        assertThatExceptionOfType(RuntimeException.class).isThrownBy(() -> parseNumberGenericRuntimeException(no));
     }
 }

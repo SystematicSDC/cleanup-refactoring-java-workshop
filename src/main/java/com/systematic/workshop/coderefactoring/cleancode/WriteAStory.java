@@ -14,38 +14,17 @@ import java.util.Random;
  */
 public class WriteAStory {
 
-    /**
-     * This method returns.. well can you please name the method so that I don't have to read this documentation?
-     * <p>
-     * It has three steps:
-     * 1) Gets the max value that you can get for a die roll
-     * 2) Actually rolls the dice
-     * 3) Checks if you're lucky today and got the max of the die roll
-     */
-    Boolean myMethod(Random object) {
-        // identify the max number between 0 and 6.
-        int max = identifyMaxNumberBetweenZeroAnd6();
-        // roll the dice today
-        int rnd = getRandom(object);
-        // see if you're lucky.
-        return seeIfYouAreLuckyToday(max, rnd);
+    Boolean isPlayerLuckyToday(Random player) {
+        int maxDieRoll = 6;
+        int dieRoll = rollDie(player);
+        return assertLuckBasedOnDieRoll(maxDieRoll, dieRoll);
     }
 
-    // Can this "chapter of the story" be simplified, while still being clear what it does?
-    private int identifyMaxNumberBetweenZeroAnd6() {
-        for (int i = 6; i >= 0; i--) {
-            return i;
-        }
-        return 0;
-    }
-
-    // Get the current roll of the dice
-    private int getRandom(Random random) {
+    private int rollDie(Random random) {
         return random.nextInt(6) + 1;
     }
 
-    private Boolean seeIfYouAreLuckyToday(int max, int rnd) {
-        return null;
-        // IMPLEMENT ME PLEASE;
+    private Boolean assertLuckBasedOnDieRoll(int maxDieRoll, int dieRoll) {
+        return maxDieRoll == dieRoll;
     }
 }

@@ -28,29 +28,38 @@ import java.nio.file.Path;
 public class SingleResponsabilityPrinciple {
     private static final Logger LOGGER = LoggerFactory.getLogger(SingleResponsabilityPrinciple.class);
 
-    void methodThatDoesEverything() throws IOException {
-        final String path = "lalala.txt";
-        String rawString = Files.readString(Path.of(path));
-        String contents = rawString.split("headerSeparator")[1];
+    void transportFileThroughTCP(String fileName) throws IOException {
+        String fileContents = readFile(fileName).split("headerSeparator")[1];
+        logFileInformation(fileContents);
+        sendContentsThroughTCP(fileContents);
+    }
+
+    private String readFile(String fileName) throws IOException {
+        return Files.readString(Path.of(fileName));
+    }
+
+    private void logFileInformation(String fileContents) {
         if (LOGGER.isInfoEnabled()) {
-            LOGGER.info("The size of the data in number of characters is {}", rawString.split("headerSeparator")[1].length());
+            LOGGER.info("The size of the data in number of characters is {}", fileContents.length());
         }
-        if (contents.contains("CONFIDENTIAL")) {
+        if (fileContents.contains("CONFIDENTIAL")) {
             if (LOGGER.isInfoEnabled()) {
-                LOGGER.info("The data is confidential, we will not log the contents.");
+                LOGGER.info("The data is confidential, we will not log the fileContents.");
             }
         } else {
             if (LOGGER.isInfoEnabled()) {
-                LOGGER.info("The data is public: {}", rawString.split("headerSeparator")[1]);
+                LOGGER.info("The data is public: {}", fileContents);
             }
         }
+    }
+
+    private void sendContentsThroughTCP(String contents) throws IOException {
         try (
                 Socket socket = new Socket(InetAddress.getLocalHost(), 8080);
                 DataOutputStream dOut = new DataOutputStream(socket.getOutputStream())
         ) {
             dOut.write(contents.getBytes(StandardCharsets.UTF_8));
         }
-
     }
 
 }

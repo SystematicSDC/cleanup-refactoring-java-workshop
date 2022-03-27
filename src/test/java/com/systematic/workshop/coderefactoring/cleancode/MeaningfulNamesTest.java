@@ -18,68 +18,60 @@ class MeaningfulNamesTest {
     MeaningfulNames meaningfulNames = new MeaningfulNames();
 
     @Test
-    void amIAJokeToYou() {
-        // Prepare
-        BigDecimal notjoke = ONE;
-        BigDecimal joke = null;
-
+    void averageCannotUseNullParameters() {
         // Execute and assert
-        assertThatExceptionOfType(NullPointerException.class).isThrownBy(() -> meaningfulNames.op1(notjoke, joke));
+        assertThatExceptionOfType(NullPointerException.class).isThrownBy(() -> meaningfulNames.average(ONE, null));
     }
 
     @Test
-    void thisMeansThatOp1MethodIsASimpleMultiply() {
-        // Prepare
-        BigDecimal number1 = ONE;
-        BigDecimal number2 = ONE;
-
+    void averageOfOneAndOneIsOne() {
         // Execute
-        BigDecimal multiplication = meaningfulNames.op1(number1, number2);
+        BigDecimal avg = meaningfulNames.average(ONE, ONE);
 
-        assertThat(multiplication).isEqualByComparingTo(ONE);
+        // Assert
+        assertThat(avg).isEqualByComparingTo(ONE);
     }
 
     @Test
-    void orIsOp1ADividerMethod() {
-        BigDecimal divided = ONE;
-        BigDecimal divisor = ONE;
+    void averageOfOneAndTwoIsHalfOfOne() {
+        // Execute
+        BigDecimal avg = meaningfulNames.average(ONE, BigDecimal.valueOf(2));
 
-        BigDecimal division = meaningfulNames.op1(divided, divisor);
-
-        assertThat(division).isEqualByComparingTo(ONE);
+        // Assert
+        assertThat(avg).isEqualByComparingTo(new BigDecimal("1.5"));
     }
 
     @Test
-    void testCounter() {
+    void testSidesThreeAndFourIsHypothenuseFive() {
         final int x = 3;
         final int y = 4;
         final int expected = 5;
 
-        double counter = meaningfulNames.op2(x, y);
+        double counter = meaningfulNames.hypothenuseSize(x, y);
         assertThat(counter).isEqualTo(expected);
     }
 
     @Test
-    void ohDamnItsNotACounter() {
-        double notACounter = meaningfulNames.op2(4, 3);
+    void testSidesFourAndThreeIsHypothenuseFive() {
+        double notACounter = meaningfulNames.hypothenuseSize(4, 3);
         assertThat(notACounter).isEqualTo(5);
     }
 
     @Test
-    void whatIsOp2() {
-        assertThat(meaningfulNames.op2(1, 1)).isEqualTo(sqrt(2));
+    void testIsoscelesTriangleOfSideOneIsHypothenuseSquareRootOfTwo() {
+        assertThat(meaningfulNames.hypothenuseSize(1, 1)).isEqualTo(sqrt(2));
     }
 
     @Test
-    void testMyFunc1() throws IOException {
-        assertThat(meaningfulNames.myfunc("123")).isFalse();
+    void deletingFileThatDoesNotExistReturnsFalse() throws IOException {
+        assertThat(meaningfulNames.deleteFile("123")).isFalse();
     }
 
     @Test
-    void test2MyFunc() throws IOException {
+    void deletingFileThatExistsReturnsTrue() throws IOException {
         Path path = createFile(Paths.get("newFile.txt"));
 
-        assertThat(meaningfulNames.myfunc(path.toString())).isTrue();
+        assertThat(meaningfulNames.deleteFile(path.toString())).isTrue();
     }
 
 }

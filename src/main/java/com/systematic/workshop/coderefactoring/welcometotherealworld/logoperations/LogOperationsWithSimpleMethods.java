@@ -21,28 +21,32 @@ import org.slf4j.LoggerFactory;
  * <li> single responsability principle</li>
  * <li> for Challenge 2: Java 8 Supplier</li>
  */
-public class LogOperations {
-    Logger logger = LoggerFactory.getLogger(LogOperations.class);
+public class LogOperationsWithSimpleMethods {
+    Logger logger = LoggerFactory.getLogger(LogOperationsWithSimpleMethods.class);
 
     long sum(long no1, long no2) {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Started operation sum.");
-        }
+        logBefore("sum");
         long sum = no1 + no2;
-        if (logger.isDebugEnabled()) {
-            logger.debug("Finished operation sum.");
-        }
+        logAfter("sum");
         return sum;
     }
 
     double squareRoot(double no) {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Started operation sqrt.");
-        }
+        logBefore("sqrt");
         double squareRoot = Math.sqrt(no);
-        if (logger.isDebugEnabled()) {
-            logger.debug("Finished operation sqrt.");
-        }
+        logAfter("sqrt");
         return squareRoot;
+    }
+
+    private void logBefore(String operation) {
+        if (logger.isDebugEnabled()) {
+            logger.debug("Started operation " + operation + ".");
+        }
+    }
+
+    void logAfter(String operation) {
+        if (logger.isDebugEnabled()) {
+            logger.debug("Finished operation " + operation + ".");
+        }
     }
 }

@@ -12,13 +12,13 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.openMocks;
 
-public class LogOperationsTest {
+public class LogOperationsWithSimpleMethodsTest {
 
     @Mock
     private Logger logger;
 
     @InjectMocks
-    private LogOperations logOperations = new LogOperations();
+    private LogOperationsWithSimpleMethods logOperations = new LogOperationsWithSimpleMethods();
 
     @BeforeEach
     void setupMocks() {

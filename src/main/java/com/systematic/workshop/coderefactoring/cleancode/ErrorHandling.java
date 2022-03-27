@@ -37,6 +37,7 @@ final class ErrorHandling {
             throw new Throwable("BOOM");
         }
 
+        // HORRIBLE - it violates Open-Closed Principle as well as potentially LSP and it looks plain ugly!
         static int parseNumberWithIntegratedExceptionHandling(String number) {
             try {
                 int i = parseNumberGenericCheckedException(number);

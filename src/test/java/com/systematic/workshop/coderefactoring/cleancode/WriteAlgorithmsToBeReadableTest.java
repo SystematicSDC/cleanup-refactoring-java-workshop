@@ -14,7 +14,7 @@ class WriteAlgorithmsToBeReadableTest {
 
     @SuppressWarnings("MagicNumber")
     @Test
-    void testEliteMethod() {
+    void testSquareRoot() {
         Map<Double, Double> testData = new HashMap<>();
         testData.put(1.0, 1.0);
         testData.put(4.0, 2.0);
@@ -22,7 +22,7 @@ class WriteAlgorithmsToBeReadableTest {
         testData.put(144.0, 12.0);
 
         testData.forEach((inputData, expectedOutputData) -> assertThat(
-                writeAlgorithmsToBeReadable.d15m37h0d_15_n4m3d_1n_1337_5p34k_although_17_0n1y_d035m47h(inputData))
+                writeAlgorithmsToBeReadable.squareRootOfPerfectSquares(inputData))
                 .isEqualByComparingTo(expectedOutputData));
     }
 

@@ -53,29 +53,23 @@ public class LoggingVsSystemPrint {
         }
     }
 
-    // Better logging here please
     String joinMe(Collection<String> strings) {
-        String log = (strings == null || strings.isEmpty()) ? "NULL"
-                : strings.toString();
-        System.err.println(log);
-        if (strings != null && strings.isEmpty()) {
-            final String delimiter = ",";
-            System.out.println(delimiter);
-            String join = String.join(delimiter, strings);
-            return join;
-        } else {
+        if (strings == null || strings.isEmpty()) {
+            logger.warn("Parameter is empty!");
             return "";
         }
+        final String delimiter = ",";
+        logger.info("Splitting string by delimiter {}", delimiter);
+        return String.join(delimiter, strings);
     }
 
-    // Better logging here please
     BigInteger handleMePls() {
         String s = "s";
         try {
             return new BigInteger(s);
         } catch (NumberFormatException e) {
-            System.err.println("can't parse" + s);
-            throw new IllegalArgumentException("regex: [+-]?\\b[0-9]+\\b");
+            logger.error("Can't parse {}", s);
+            throw new IllegalArgumentException("Number must follow regex [+-]?\\b[0-9]+\\b", e);
         }
     }
 

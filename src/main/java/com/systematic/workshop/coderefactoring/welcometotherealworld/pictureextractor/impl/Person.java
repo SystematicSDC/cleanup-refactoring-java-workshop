@@ -3,6 +3,10 @@ package com.systematic.workshop.coderefactoring.welcometotherealworld.pictureext
 import com.systematic.workshop.coderefactoring.welcometotherealworld.pictureextractor.Entity;
 
 class Person implements Entity {
+    @Override
+    public String getId() {
+        return CNPGenerator.generateRandomCnp();
+    }
 
     static final class CNPGenerator {
 

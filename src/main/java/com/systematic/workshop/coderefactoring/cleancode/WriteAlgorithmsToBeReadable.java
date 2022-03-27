@@ -16,14 +16,16 @@ public class WriteAlgorithmsToBeReadable {
 
     static final int NUMBER_NOT_FOUND = -1;
 
-    double d15m37h0d_15_n4m3d_1n_1337_5p34k_although_17_0n1y_d035m47h(double p) {
-        double t;
-        double s = p / 2;
+    // Babylonian method: https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method
+    // sqrt(n+1) = (sqrt(n) + (originalNumber/sqrt(n)) / 2 => increase iterations of n until we reach desired accuracy
+    double squareRootOfPerfectSquares(double originalNumber) {
+        double newSquareRoot = originalNumber / 2;
+        double oldSquareRoot;
         do {
-            t = s;
-            s = (t + (p / t)) / 2; //
-        } while (t - s != 0);
-        return s;
+            oldSquareRoot = newSquareRoot;
+            newSquareRoot = (oldSquareRoot + (originalNumber / oldSquareRoot)) / 2; //
+        } while (oldSquareRoot - newSquareRoot != 0);
+        return newSquareRoot;
     }
 
 

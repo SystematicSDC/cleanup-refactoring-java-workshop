@@ -2,6 +2,8 @@
 
 [![Java CI with Maven](https://github.com/SystematicSDC/cleanup-refactoring-java-workshop/actions/workflows/maven.yml/badge.svg)](https://github.com/SystematicSDC/cleanup-refactoring-java-workshop/actions/workflows/maven.yml)
 
+To set up your development environment [go here](https://github.com/SystematicSDC/setup-dev-env/blob/main/SETUP-DEV-ENV-JAVA.MD).
+
 ## How to use
 
 - open as a Maven project (via pom.xml)
